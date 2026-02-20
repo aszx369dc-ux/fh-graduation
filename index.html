@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>倒數計時</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1 id="title">距離6th楓香班畢業日期還有</h1>
+
+    <section class="timer" aria-label="倒數計時">
+      <div class="box"><div id="days" class="num">0</div><div class="label">天</div></div>
+      <div class="box"><div id="hours" class="num">0</div><div class="label">小時</div></div>
+      <div class="box"><div id="minutes" class="num">0</div><div class="label">分鐘</div></div>
+      <div class="box"><div id="seconds" class="num">0</div><div class="label">秒</div></div>
+    </section>
+
+    <p class="hint">
+      目標日期：<span id="targetText"></span>
+    </p>
+
+    <div class="controls">
+      <label>
+        目標日期時間：
+        <input id="targetInput" type="datetime-local" />
+      </label>
+      <button id="saveBtn">套用</button>
+      <button id="resetBtn" class="ghost">重設為預設</button>
+    </div>
+
+    <p id="message" class="message" role="status"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

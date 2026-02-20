@@ -1,0 +1,75 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Noto Sans TC", Segoe UI, Roboto, sans-serif;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #0b1220;
+  color: #e8eefc;
+}
+
+.card {
+  width: min(720px, 100%);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+h1 { margin: 0 0 16px; font-size: 28px; }
+
+.timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 14px 0 8px;
+}
+
+.box {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+}
+
+.num { font-size: 34px; font-weight: 800; letter-spacing: 0.5px; }
+.label { opacity: 0.85; margin-top: 6px; }
+
+.hint { opacity: 0.9; margin: 12px 0 0; }
+.controls {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: end;
+  margin-top: 16px;
+}
+label { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+input {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.2);
+  color: #e8eefc;
+}
+
+button {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.14);
+  color: #e8eefc;
+  cursor: pointer;
+}
+button:hover { background: rgba(255,255,255,0.20); }
+button.ghost { background: transparent; }
+
+.message { margin-top: 10px; opacity: 0.9; min-height: 1.2em; }
+
+@media (max-width: 520px) {
+  .timer { grid-template-columns: repeat(2, 1fr); }
+}
