@@ -73,3 +73,19 @@ button.ghost { background: transparent; }
 @media (max-width: 520px) {
   .timer { grid-template-columns: repeat(2, 1fr); }
 }
+/* ===== 楓葉背景 ===== */
+
+#leafCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+}
