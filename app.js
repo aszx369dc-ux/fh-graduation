@@ -120,3 +120,79 @@ function initControls() {
 
 initControls();
 start();
+/* ===== 楓葉飄落動畫 ===== */
+
+const canvas = document.getElementById("leafCanvas");
+const ctx = canvas.getContext("2d");
+
+let leaves = [];
+const leafCount = 25;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+class Leaf {
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.x = Math.random() * canvas.width;
+    this.y = Math.random() * -canvas.height;
+    this.size = 10 + Math.random() * 20;
+    this.speedY = 0.5 + Math.random() * 1.2;
+    this.speedX = Math.random() * 1 - 0.5;
+    this.rotation = Math.random() * 360;
+  }
+
+  update() {
+    this.y += this.speedY;
+    this.x += this.speedX;
+    this.rotation += 1;
+
+    if (this.y > canvas.height) {
+      this.reset();
+      this.y = -20;
+    }
+  }
+
+  draw() {
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate((this.rotation * Math.PI) / 180);
+
+    ctx.fillStyle = "rgba(255, 120, 40, 0.8)";
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(this.size / 2, -this.size, this.size, 0);
+    ctx.quadraticCurveTo(this.size / 2, this.size, 0, 0);
+    ctx.fill();
+
+    ctx.restore();
+  }
+}
+
+function initLeaves() {
+  leaves = [];
+  for (let i = 0; i < leafCount; i++) {
+    leaves.push(new Leaf());
+  }
+}
+
+function animateLeaves() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  leaves.forEach((leaf) => {
+    leaf.update();
+    leaf.draw();
+  });
+
+  requestAnimationFrame(animateLeaves);
+}
+
+initLeaves();
+animateLeaves();
