@@ -1,6 +1,6 @@
 // ====== 你可以改這裡：預設目標日期（台北時間感覺） ======
 // 注意：Date 會以使用者瀏覽器的本地時區顯示/計算
-const DEFAULT_TARGET_ISO = "2026-06-26T00:00";
+const DEFAULT_TARGET_ISO = "2026-06-26T14:00";
 
 const $ = (id) => document.getElementById(id);
 
